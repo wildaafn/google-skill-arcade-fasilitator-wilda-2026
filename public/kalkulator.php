@@ -347,7 +347,7 @@
         leaderboardContainer.classList.add('hidden');
 
         try {
-          const res = await fetch(`/api/leaderboard?t=${Date.now()}`);
+          const res = await fetch(`/api/leaderboard.php?t=${Date.now()}`);
           const data = await res.json();
           if (data && data.records) {
             leaderboardData = data.records;
@@ -374,7 +374,7 @@
         leaderboardEmpty.classList.add('hidden');
 
         try {
-          const res = await fetch(`/api/sync-all?t=${Date.now()}`);
+          const res = await fetch(`/api/sync-all.php?t=${Date.now()}`);
           const data = await res.json();
           if (data && data.records) {
             leaderboardData = data.records;
@@ -430,7 +430,7 @@
         result.classList.remove('fade-in-up');
 
         try {
-          const res  = await fetch(`/api/hitung-poin?url=${encodeURIComponent(url)}`);
+          const res  = await fetch(`/api/hitung-poin.php?url=${encodeURIComponent(url)}`);
           const data = await res.json();
 
           if (!res.ok || data.error) {
@@ -742,7 +742,7 @@
           }
 
           try {
-            const res = await fetch(`/api/avatar?id=${encodeURIComponent(token)}`);
+            const res = await fetch(`/api/avatar.php?id=${encodeURIComponent(token)}`);
             const data = await res.json();
             if (data.avatarUrl) {
               setCachedAvatar(token, data.avatarUrl);
